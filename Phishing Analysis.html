@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Analysis Report - Task 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CORE SETUP */
+        * { box-sizing: border-box; }
+        p { margin: 0; margin-bottom: 12px; }
+
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Lato', sans-serif;
+            color: #475569;
+        }
+
+        .slide-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            width: 1200px;
+            min-height: 700px;
+            padding: 60px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* HEADER ACCENT */
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 8px;
+            background: linear-gradient(90deg, #0f172a, #3b82f6);
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 { color: #0f172a; font-family: 'Poppins', sans-serif; margin: 0; }
+        h1 { font-size: 56px; text-align: center; margin-bottom: 20px; }
+        .slide-title { font-size: 34px; margin-bottom: 30px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; width: 100%; }
+        h3 { font-size: 24px; color: #3b82f6; margin-bottom: 15px; }
+
+        /* EMAIL MOCKUP STYLING */
+        .email-mockup {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+        }
+        .email-header { border-bottom: 1px solid #cbd5e1; margin-bottom: 15px; padding-bottom: 10px; font-size: 16px; }
+        .email-header span { font-weight: bold; color: #1e293b; }
+
+        /* RED FLAG BOX */
+        .red-flag-box {
+            background: rgba(239, 68, 68, 0.05);
+            border-left: 5px solid #ef4444;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        .red-flag-box h3 { color: #ef4444; }
+
+        /* LAYOUTS */
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; width: 100%; }
+        .table-layout table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .table-layout th { background: #f8fafc; text-align: left; padding: 15px; border-bottom: 2px solid #e2e8f0; color: #0f172a; }
+        .table-layout td { padding: 15px; border-bottom: 1px solid #f1f5f9; }
+
+        /* TILES */
+        .tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+        .tile { background: #f8fafc; border: 1px solid #e2e8f0; padding: 25px; border-radius: 12px; text-align: center; }
+        .tile i { font-size: 40px; color: #3b82f6; margin-bottom: 15px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <div style="text-align: center; margin: auto;">
+            <h1>Task 2: Phishing Analysis <br>& Detection</h1>
+            <p style="font-size: 22px; color: #64748b;">A Deep Dive into Social Engineering Tactics</p>
+            <div style="height: 4px; width: 100px; background: #3b82f6; margin: 30px auto;"></div>
+            <p><strong>Prepared by:</strong> Prudence</p>
+            <p><strong>Role:</strong> Security Intern | Future Interns</p>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <h2 class="slide-title">Case Study 1: Microsoft 365 Credential Theft</h2>
+        <div class="two-column">
+            <div class="email-mockup">
+                <div class="email-header">
+                    <p><span>From:</span> Microsoft 365 Support &lt;no-reply@security-office-update.com&gt;</p>
+                    <p><span>Subject:</span> Action Required: Account Deactivation in 2 hours</p>
+                </div>
+                <p>Dear Valued Employee,</p>
+                <p>We detected unusual activity. To avoid permanent lockout and data loss, verify your identity immediately:</p>
+                <p style="text-align: center; margin: 20px 0;">
+                    <span style="background: #0078d4; color: white; padding: 12px 25px; border-radius: 2px; font-weight: bold; cursor: pointer;">Verify My Account Now</span>
+                </p>
+                <p style="font-size: 14px; color: #94a3b8; font-family: monospace;">Link: http://bit.ly/m365-secure-login-3921</p>
+            </div>
+            <div class="red-flag-box">
+                <h3>Technical Analysis:</h3>
+                <ul>
+                    <li><strong>Sender Spoofing:</strong> The domain <em>security-office-update.com</em> is not an official Microsoft domain.</li>
+                    <li><strong>Artificial Urgency:</strong> Threatens a "2-hour" deadline to induce panic.</li>
+                    <li><strong>URL Obfuscation:</strong> Uses a <em>Bit.ly</em> shortener to hide the malicious destination.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <h2 class="slide-title">Case Study 2: DHL Service Fraud</h2>
+        <div class="two-column">
+            <div class="email-mockup">
+                <div class="email-header">
+                    <p><span>From:</span> DHL Express &lt;support@dhl-track-parcel.net&gt;</p>
+                    <p><span>Subject:</span> Update: Your shipment is on hold</p>
+                </div>
+                <p>Dear Customer,</p>
+                <p>Delivery failed at 10:45 AM. To prevent "Return to Sender," please confirm your address and pay the re-delivery fee of <strong>$1.95</strong>.</p>
+                <p style="text-align: center; margin: 20px 0;">
+                    <span style="background: #ffcc00; color: #000; padding: 12px 25px; border-radius: 4px; font-weight: bold; cursor: pointer;">Reschedule Delivery</span>
+                </p>
+                <p style="font-size: 14px; color: #94a3b8; font-family: monospace;">Link: https://dhl-express-logistics-portal.com/update</p>
+            </div>
+            <div class="red-flag-box">
+                <h3>Technical Analysis:</h3>
+                <ul>
+                    <li><strong>Look-alike Domain:</strong> The URL mimics DHL but uses a custom "logistics-portal" domain.</li>
+                    <li><strong>Financial Hook:</strong> Asks for a tiny fee to trick users into entering credit card details.</li>
+                    <li><strong>Generic Greeting:</strong> "Dear Customer" indicates a mass-sent automated attack.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <h2 class="slide-title">Comparison of Attack Vectors</h2>
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indicator</th>
+                        <th>Microsoft (Credential Phish)</th>
+                        <th>DHL (Financial Fraud)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Primary Goal</strong></td>
+                        <td>Account Access / Credential Theft</td>
+                        <td>Credit Card / Payment Fraud</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Psychological Trigger</strong></td>
+                        <td>Fear & Urgency</td>
+                        <td>Convenience & Duty</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Technical Trick</strong></td>
+                        <td>Shortened Links (Bitly)</td>
+                        <td>Domain Squatting (Look-alike)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risk Level</strong></td>
+                        <td style="color: #ef4444; font-weight: bold;">CRITICAL</td>
+                        <td style="color: #f97316; font-weight: bold;">HIGH</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <h2 class="slide-title">Mitigation & Best Practices</h2>
+        <div class="tile-grid">
+            <div class="tile">
+                <i class="fas fa-mouse-pointer"></i>
+                <h3>Hover First</h3>
+                <p>Always hover over links to see the true destination before clicking.</p>
+            </div>
+            <div class="tile">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Enable MFA</h3>
+                <p>Multi-Factor Authentication blocks 99% of automated credential attacks.</p>
+            </div>
+            <div class="tile">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Report Threats</h3>
+                <p>Forward suspicious emails to IT or use the "Report Phishing" button.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
