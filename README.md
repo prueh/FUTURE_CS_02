@@ -15,13 +15,9 @@ This project was developed for the *Future Interns Cybersecurity Internship* to 
 * *Interactive Elements:* Utilized Font Awesome icons and CSS transitions to emphasize critical "Red Flags."
 
 ## Repository Structure
-* FUTURE_CS_02.html: The complete interactive awareness presentation.
+* FUTURE_CS_02.pdf: The complete interactive awareness presentation.
 * README.md: Project documentation and overview.
 
-## How to View
-1. Download the repository files.
-2. Open FUTURE_CS_02.html in Chrome, Firefox, or Edge.
-3. Use the slides to conduct a mock awareness training session.
 
 ## Author
 *Prudence*
